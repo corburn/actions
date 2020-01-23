@@ -5,11 +5,22 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  bco-specification-uri:
+    description: 'TODO'
+    required: false
+    default: 'https://raw.githubusercontent.com/biocompute-objects/BCO_Specification/1.3.1/schemas/biocomputeobject.json'
+  bco-file:
+    description: 'TODO'
+    required: false
+    default: './bco.json'
+
 outputs:
   time:
     description: 'The time we greeted you'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.bco-specification-uri }}
+    - ${{ inputs.bco-file }}
